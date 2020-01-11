@@ -46,7 +46,7 @@ a collection of simple demos of React.js
 ```
 ---
 
-## Demo01：Hello World
+## Demo-01：Hello World
 [demo01](https://github.com/luckyMuChen/React-demos/tree/master/demo01)/[source](https://github.com/luckyMuChen/React-demos/blob/master/demo01/index.html)
 
 - React中的模板语法称为JSX。JSX允许将HTML标签直接放入JavaScript代码。ReactDOM.render()是将JSX转换为HTML，并将其呈现到指定的DOM节点的方法。
@@ -82,3 +82,6 @@ a collection of simple demos of React.js
    - `console.dir(h1)`
 3. 真实DOM对象中的属性很多---------可以查看该对象是不是真实DOM对象
    - `console.dir(document.getElementById('demo'))`
+---
+
+## Demo-02
