@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>React-demo01-HelloWorld</title>
+  <!-- 先引入react，再引入react-dom，它们的顺序不可以调换 -->
+  <!-- react-dom是依赖于react运行的，所以react-dom必须放在react的下面，放在上面会报错，提示找不到react -->
+  <script type="text/javascript" src="../build/react.development.js"></script>
+  <script type="text/javascript" src="../build/react-dom.development.js"></script>
+  <!-- 引入babel将jsx语法转换成浏览器识别的语法 -->
+  <script type="text/javascript" src="../build/babel.min.js"></script>
+  <!-- 将script的type改为text/babel，babel才能生效，就会转换jsx语法-->
+</head>
+
+<body>
+  <div id="demo"></div>
+
+  <script type="text/babel">
+    // 1.创建虚拟DOM对象
+    const h1 = <h1>Hello,World</h1>
+    // 2.将虚拟DOM对象渲染到页面指定容器中
+    ReactDOM.render(h1, document.getElementById('demo'))
+  </script>
+</body>
+
+</html>
