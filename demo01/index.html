@@ -17,10 +17,13 @@
 
 <body>
   <div id="demo"></div>
-
   <script type="text/babel">
     // 1.创建虚拟DOM对象
     const h1 = <h1>Hello,World</h1>
+    // console.log('====================================');
+    // console.log(h1);
+    // console.log('====================================');
+    // console.dir(document.getElementById('demo'))
     // 2.将虚拟DOM对象渲染到页面指定容器中
     ReactDOM.render(h1, document.getElementById('demo'))
   </script>
