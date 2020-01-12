@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo-02:JSX语法</title>
+  <script type="text/javascript" src="../build/react.development.js"></script>
+  <script type="text/javascript" src="../build/react-dom.development.js"></script>
+  <script type="text/javascript" src="../build/babel.min.js"></script>
+</head>
+</head>
+
+<body>
+  <div id="test1"></div>
+  <div id="test2"></div>
+  <div>-------------------------分割线-----------------------</div>
+  <div id="test3"></div>
+  <div id="test4"></div>
+  <script type="text/javascript">
+    // 第一种方式：创建虚拟DOM对象
+    const h1 = React.createElement('h1', { id: 'myTitile', className: 'myClass' }, 'Hello h1标签')
+    // 将虚拟DOM对象渲染到页面指定容器中
+    ReactDOM.render(h1, document.getElementById('test1'))
+
+    // 用第一种创建方式，在h2标签中创建一个span标签
+    const span = React.createElement('span', {}, '第一种方法创建span标签')
+    const h2 = React.createElement('h2', { id: 'myTitile', className: 'myClass' }, span, span)
+    // 将虚拟DOM对象渲染到页面指定容器中
+    ReactDOM.render(h2, document.getElementById('test2'))
+  </script>
+  <script type="text/babel">
+    // 第二种方式：创建虚拟DOM对象
+    const h3 = <h3>
+      <span>第二种方法创建span标签</span>
+      <span>第二种方法创建span标签</span>
+    </h3>
+    // 将虚拟DOM对象渲染到页面指定容器中
+    ReactDOM.render(h3, document.getElementById('test3'))
+
+    const id = 'myTitle3';
+    const className = 'myClass3';
+    const content = '我也是第二种方法创建span标签';
+    const myH1 = <h1 id={id} className={className}>
+      <span>{content}</span>
+      <span>我也是第二种方法创建span标签</span>
+    </h1>
+    ReactDOM.render(myH1, document.getElementById('test4'))
+  </script>
+</body>
+
+</html>
