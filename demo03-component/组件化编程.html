@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件化编程-定义组件的俩种方式</title>
+  <script type="text/javascript" src="../build/react.development.js"></script>
+  <script type="text/javascript" src="../build/react-dom.development.js"></script>
+  <script type="text/javascript" src="../build/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="example"></div>
+  <div>----------------------------此处是分割线---------------------------</div>
+  <div id="example1"></div>
+  <script type="text/babel">
+    // 1.使用工厂函数方式定义简单组件
+    function MyComponent1() {
+      // console.log(this);
+      return < h1>使用工厂函数方式定义简单组件-MyComponent1</ h1>
+    }
+
+    // 2.使用ES6类方式定义复杂组件
+    class MyComponent2 extends React.Component {
+      render() {
+        console.log(this);
+        return <div>
+          <h1>使用ES6类方式定义复杂组件-MyComponent2</h1>
+          <h2>MyComponent2</h2>
+        </div>
+      }
+    }
+
+    // 将组件渲染到页面上
+    ReactDOM.render(<MyComponent1 />, document.getElementById('example'))
+    ReactDOM.render(<MyComponent2 />, document.getElementById('example1'))
+
+  </script>
+</body>
+
+</html>

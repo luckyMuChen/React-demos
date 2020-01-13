@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>compenent-state</title>
+  <script type="text/javascript" src="../build/react.development.js"></script>
+  <script type="text/javascript" src="../build/react-dom.development.js"></script>
+  <script type="text/javascript" src="../build/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="example"></div>
+
+  <script type="text/babel">
+    /*需求：自定义组件，功能说明如下：
+        1.显示h2标题，初始文本为：玉树临风美少年
+        2.点击标题更新为：揽镜自顾夜不眠
+    */
+    class ChangeText extends React.Component {
+      // constructor(props) {
+      //   super(props);
+      //   // 初始化
+      //   this.state = {
+      //     isChange: true
+      //   }
+      // }
+      state = {
+        isChange: true
+      }
+      handleClick = () => {
+        // 读取状态属性值
+        const { isChange } = this.state;
+        console.log(isChange);
+        // 更新状态属性值 ----->重新渲染组件
+        this.setState({
+          isChange: !isChange
+        })
+      }
+      render() {
+        // 读取状态属性值
+        // const isChange = this.state.isChange;
+        // 简写
+        const { isChange } = this.state;
+        // 绑定点击事件
+        return <h2 onClick={this.handleClick}>{isChange ? '玉树临风美少年' : '揽镜自顾夜不眠'}</h2>
+      }
+    }
+    // 渲染
+    ReactDOM.render(<ChangeText />, document.getElementById('example'))
+  </script>
+</body>
+
+</html>
