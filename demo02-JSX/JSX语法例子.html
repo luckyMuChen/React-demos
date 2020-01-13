@@ -5,10 +5,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>JSX例子</title>
+  <script type="text/javascript" src="../build/react.development.js"></script>
+  <script type="text/javascript" src="../build/react-dom.development.js"></script>
+  <script type="text/javascript" src="../build/babel.min.js"></script>
 </head>
 
 <body>
+  <div id="example"></div>
+  <div>-----------------------------分割线--------------------------</div>
+  <h2>《杂诗》陶渊明</h2>
+  <div id="example1"></div>
+  <div>-----------------------------分割线--------------------------</div>
+  <h2>前端学习框架</h2>
+  <div id="example2"></div>
+
+  <script type="text/babel">
+    ReactDOM.render(
+      <div>
+        <h1>react学习</h1>
+        <h2>欢迎学习 React</h2>
+        <p>这是一个很不错的 JavaScript 库!</p>
+      </div>
+      , document.getElementById('example'))
+  </script>
+
+  <script type="text/babel">
+    const names = ['盛年不重来', '一日难再晨', '及时当勉励', '岁月不待人']
+    // 使用JSX语法创建虚拟DOM对象
+    const newNames =
+      names.map((item, index) => {
+        return <li key={index}>{item}</li>
+      })
+    // 在JSX语法中，遇到数组会自动展开
+    ReactDOM.render(<ul>{newNames}</ul>, document.getElementById('example1'))
+  </script>
+
+  <script type="text/babel">
+    // 上面可以简写成如下写法
+    const names = ['JQuery', 'Bootstrap', 'Node', 'Express', 'React', 'Vue']
+    ReactDOM.render(<ul>
+      {
+        // 调用map方法，得到返回值，返回值是一个新数组，接着展开新数组
+        names.map((item, index) => {
+          return <li key={index}>{item}</li>;
+        })
+      }
+    </ul>, document.getElementById('example2'))
+    // 细节：这里的return可以直接去掉，但是不可以用｛｝把li标签包裹
+    //  map这种方法以后会在react中常用，对一个数组进行遍历处理，将其展示在页面
+  </script>
 
 </body>
 
